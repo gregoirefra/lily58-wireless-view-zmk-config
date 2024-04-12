@@ -21,7 +21,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "RIGHT_THIRD";
             #binding-cells = <0>;
-            bindings = <&kp LA(LC(T))>, <&kp LC(LA(G))>;
+            bindings = <&kp LA(LC(G))>, <&kp LC(LA(T))>;
         };
     };
 
