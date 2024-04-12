@@ -9,6 +9,15 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        tap: tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LC(LEFT_ARROW))>, <&kp LC(LA(RIGHT))>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -64,7 +73,7 @@
             bindings = <
 &trans     &trans  &trans  &trans      &trans            &trans                        &trans       &trans     &trans     &trans    &trans     &trans
 &kp GRAVE  &kp N1  &kp N2  &kp N3      &kp N4            &kp N5                        &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
-&kp F1     &kp F2  &kp F3  &kp F4      &kp F5            &kp F6                        &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans
+&kp F1     &kp F2  &kp F3  &kp F4      &kp F5            &kp F6                        &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &tap
 &kp F7     &kp F8  &kp F9  &kp F10     &kp F11           &kp F12     &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
                            &kp K_BACK  &kp K_PLAY_PAUSE  &kp K_NEXT  &trans    &trans  &trans       &trans     &trans
             >;
