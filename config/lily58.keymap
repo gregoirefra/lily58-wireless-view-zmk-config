@@ -10,11 +10,18 @@
 
 / {
     behaviors {
-        tap: tap {
+        left_third: left_third {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP";
+            label = "LEFT_THIRD";
             #binding-cells = <0>;
-            bindings = <&kp LA(LC(LEFT_ARROW))>, <&kp LC(LA(RIGHT))>;
+            bindings = <&kp LA(LC(D))>, <&kp LC(LA(E))>;
+        };
+
+        right_third: right_third {
+            compatible = "zmk,behavior-tap-dance";
+            label = "RIGHT_THIRD";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LC(T))>, <&kp LC(LA(G))>;
         };
     };
 
@@ -71,11 +78,11 @@
 
             label = "Raise";
             bindings = <
-&trans     &trans  &trans  &trans      &trans            &trans                        &trans       &trans     &trans     &trans    &trans     &trans
-&kp GRAVE  &kp N1  &kp N2  &kp N3      &kp N4            &kp N5                        &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
-&kp F1     &kp F2  &kp F3  &kp F4      &kp F5            &kp F6                        &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &tap
-&kp F7     &kp F8  &kp F9  &kp F10     &kp F11           &kp F12     &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
-                           &kp K_BACK  &kp K_PLAY_PAUSE  &kp K_NEXT  &trans    &trans  &trans       &trans     &trans
+&trans     &trans  &trans  &trans      &trans            &trans                        &kp LA(LC(LEFT_ARROW))  &kp LC(LA(RIGHT_ARROW))  &left_third  &kp LA(LC(F))  &right_third  &trans
+&kp GRAVE  &kp N1  &kp N2  &kp N3      &kp N4            &kp N5                        &kp N6                  &kp N7                   &kp N8       &kp N9         &kp N0        &trans
+&kp F1     &kp F2  &kp F3  &kp F4      &kp F5            &kp F6                        &trans                  &kp LEFT                 &kp DOWN     &kp UP         &kp RIGHT     &left_third
+&kp F7     &kp F8  &kp F9  &kp F10     &kp F11           &kp F12     &trans    &trans  &kp KP_PLUS             &kp MINUS                &kp EQUAL    &kp LBKT       &kp RBKT      &kp BSLH
+                           &kp K_BACK  &kp K_PLAY_PAUSE  &kp K_NEXT  &trans    &trans  &trans                  &trans                   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
